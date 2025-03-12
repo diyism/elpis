@@ -17,6 +17,7 @@
     从浏览器访问: http://127.0.0.1:5001/
     网页界面 上传 语音 和 抄写 文件时, 抄写 文件格式 要求 .eaf Elan transcription,
     里面有每个音节的开始和结束时间戳, 对于个人训练来说太麻烦了
+    训练openWakeWord项目更简单: https://github.com/dscripka/openWakeWord/
 
 
 <p align="center"><img src="docs/img/elpis.png" width="250px"/></p>
