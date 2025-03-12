@@ -1,3 +1,20 @@
+    增加单个容器的容量(默认10GB不够), 在/etc/docker/daemon.json里加上:
+      "storage-opts": [
+        "dm.basesize=20G"
+      ]
+    然后:
+    $ sudo systemctl restart docker
+
+    $ docker inspect --format='{{json .Config.Entrypoint}}' coedl/elpis:latest
+    ["poetry","run","flask","--debug","run","--host","0.0.0.0","--port","5001"]
+    
+    $ docker run -it --entrypoint bash -p 5001:5001/tcp -p 6006:6006/tcp coedl/elpis:latest
+    
+    root@7a359096db10:/elpis# pip install packaging==23.1
+    
+    root@7a359096db10:/elpis# poetry run flask --debug run --host 0.0.0.0 --port 5001
+    
+    从浏览器访问: http://127.0.0.1:5001/
     网页界面 上传 语音 和 抄写 文件时, 抄写 文件格式 要求 .eaf Elan transcription,
     里面有每个音节的开始和结束时间戳, 对于个人训练来说太麻烦了
 
